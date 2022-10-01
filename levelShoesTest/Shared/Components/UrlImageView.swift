@@ -25,12 +25,12 @@ struct UrlImageView: View {
     
     var body: some View {
         if urlImageModel.loading {
-            
+
             VStack {
                 ProgressView()
             }
             .frame(maxWidth: .infinity,maxHeight: .infinity)
-            .background(Color.gray)
+            .background(Color.white)
         }
         else if let img = urlImageModel.image {
             if imageScale == .fill {
@@ -47,8 +47,6 @@ struct UrlImageView: View {
         
         
     }
-    
-    static var defaultImage = UIImage(named: "NewsIcon")
 }
 struct UrlImageView_Previews: PreviewProvider {
     static var previews: some View {
@@ -61,7 +59,7 @@ struct UrlImageView_Previews: PreviewProvider {
 class UrlImageModel: ObservableObject {
     @Published var image: UIImage?
     @Published var loading: Bool = false
-    var defualtImage: UIImage = UIImage(named: "test")!
+    var defualtImage: UIImage = UIImage(named: "noimage")!
     var urlString: String?
     var imageCache = ImageCache.getImageCache()
     init(urlString: String?) {

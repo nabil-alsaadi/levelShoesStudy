@@ -9,10 +9,11 @@ import SwiftUI
 
 struct ButtonView: View {
     var title: String
-    var action: () -> ()
+    var disabled: Bool = false
+    var action: () -> Void
     var body: some View {
         Button {
-            
+            action()
         } label: {
             HStack {
                 Spacer()
@@ -27,6 +28,8 @@ struct ButtonView: View {
             .background(Color.black)
             .cornerRadius(5)
         }
+        .opacity(disabled ? 0.5 : 1)
+        .disabled(disabled)
 
         
         

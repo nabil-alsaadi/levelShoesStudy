@@ -7,33 +7,29 @@
 
 import SwiftUI
 struct HomeView: View {
+    @EnvironmentObject var globals: Globals
     @ObservedObject var viewModel: HomeViewModel
     let columns = [GridItem(.flexible(),spacing: 25), GridItem(.flexible(),spacing: 25)]
     var body: some View {
         VStack {
-            HStack {
-                Text("NEW IN")
+            NavigationBarView(title: globals.itemsResponse.title, type: .home,rightAction: {
+                viewModel.send(action: .wishlist)
+            })
+            if let items = globals.itemsResponse.items, items.count > 0 {
+                itemsListView(viewModel: ItemsListViewModel(router: viewModel.router, items: items) )
             }
-            ScrollView {
-                LazyVGrid(columns: columns,spacing: 20) {
-                    if let items = viewModel.itemsResponse?.items {
-                        ForEach(items, id: \.self) { item in
-                            Button {
-                                viewModel.send(action: .productDetails)
-                            } label: {
-                                ProductCellView(item: item)
-                            }
-                        }
-                    }
-                }
-                .padding(20)
+            else {
+                Spacer()
+                ProgressIndecatorView()
+                Spacer()
             }
+            
         }
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(viewModel: HomeViewModel(router: HomeCoordinator().unownedRouter) )
+        HomeView(viewModel: HomeViewModel(router: HomeCoordinator().unownedRouter) ).environmentObject(Globals())
     }
 }

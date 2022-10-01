@@ -13,6 +13,7 @@ struct TagView: View {
         
             Text(title)
                 .font(.caption2)
+                .foregroundColor(.black)
                 .padding(5)
                 .background(
                   RoundedRectangle(cornerRadius: 5)
