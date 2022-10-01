@@ -32,7 +32,8 @@ class HomeCoordinator: NavigationCoordinator<HomeRoute> {
         switch route {
         case .home:
             hideNavigation()
-            let view = HomeView()
+            let vm = HomeViewModel(router: unownedRouter)
+            let view = HomeView(viewModel: vm)
 //                .onAppear {
 //                self.hideNavigation()
 //            }

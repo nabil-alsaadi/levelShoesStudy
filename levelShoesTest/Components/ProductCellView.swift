@@ -8,28 +8,31 @@
 import SwiftUI
 
 struct ProductCellView: View {
+    var item: Item
     var body: some View {
         VStack(alignment: .leading) {
             VStack {
                 //Spacer()
-                Image("test")
-                    .resizable()
-                    .scaledToFit()
-                    .padding(.bottom,20)
+                UrlImageView(urlString: item.image, imageScale: .fit)
+//                Image("test")
+//                    .resizable()
+//                    .scaledToFit()
+                    .padding(.vertical,20)
             }
             .background(Color.white)
             .clipped()
-            .shadow(color: .shadowColor,radius: 20,y: 4)
+            .shadow(color: .shadowColor,radius: 5,y: 10)
             
-            Text("SAINT LAURENT")
-            Text("SAINT LAURENT")
-            Text("2300 AED")
+            Text(item.brand)
+                .foregroundColor(.black)
+            Text(item.name)
+                .foregroundColor(.black)
+            Text("\(item.price) AED")
+                .foregroundColor(.black)
         }
         .overlay(alignment: .top, content: {
             HStack(alignment: .top) {
-                FlexibleView(data: [
-                    "KIDS UNISEX", "NEW", "SALE"
-                  ],
+                FlexibleView(data: item.badges,
                     spacing: 5,
                     alignment: .leading
                   ) { item in
@@ -56,8 +59,8 @@ struct ProductCellView: View {
 struct ProductCellView_Previews: PreviewProvider {
     static var previews: some View {
         HStack {
-            ProductCellView()
-            ProductCellView()
+            ProductCellView(item: Item.testItem())
+            ProductCellView(item: Item.testItem())
         }
         .padding()
         
