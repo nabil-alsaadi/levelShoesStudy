@@ -28,11 +28,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
             self.window = window
             SceneDelegate.router.setRoot(for: window)
-            
-//            self.window?.rootViewController = UIHostingController(rootView: VStack {
-//                Text("hello world")
-//            } )
-            
             window.makeKeyAndVisible()
         }
     }

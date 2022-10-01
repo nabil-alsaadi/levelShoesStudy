@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		52C0E40E28E71CFC0058A830 /* levelShoesTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0E40D28E71CFC0058A830 /* levelShoesTestApp.swift */; };
-		52C0E41028E71CFC0058A830 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0E40F28E71CFC0058A830 /* ContentView.swift */; };
 		52C0E41228E71CFF0058A830 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52C0E41128E71CFF0058A830 /* Assets.xcassets */; };
 		52C0E41528E71CFF0058A830 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52C0E41428E71CFF0058A830 /* Preview Assets.xcassets */; };
 		52C0E41D28E722250058A830 /* ProductCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0E41C28E722250058A830 /* ProductCellView.swift */; };
@@ -62,8 +60,6 @@
 
 /* Begin PBXFileReference section */
 		52C0E40A28E71CFC0058A830 /* levelShoesTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = levelShoesTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		52C0E40D28E71CFC0058A830 /* levelShoesTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = levelShoesTestApp.swift; sourceTree = "<group>"; };
-		52C0E40F28E71CFC0058A830 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		52C0E41128E71CFF0058A830 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52C0E41428E71CFF0058A830 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		52C0E41C28E722250058A830 /* ProductCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellView.swift; sourceTree = "<group>"; };
@@ -148,17 +144,14 @@
 			children = (
 				52C0E45828E880190058A830 /* Coordinators */,
 				52C0E44528E859990058A830 /* Network */,
-				52C0E43B28E847880058A830 /* Info.plist */,
 				52C0E42328E727270058A830 /* Scenes */,
 				52C0E42028E7257D0058A830 /* Shared */,
 				52C0E41F28E725230058A830 /* Extensions */,
-				52C0E40D28E71CFC0058A830 /* levelShoesTestApp.swift */,
-				52C0E40F28E71CFC0058A830 /* ContentView.swift */,
 				52C0E41128E71CFF0058A830 /* Assets.xcassets */,
 				52C0E41328E71CFF0058A830 /* Preview Content */,
 				52C0E43C28E84A5D0058A830 /* SceneDelegate.swift */,
 				52C0E43E28E84A860058A830 /* AppDelegate.swift */,
-				52C0E48128E8D3720058A830 /* Storage.swift */,
+				52C0E43B28E847880058A830 /* Info.plist */,
 			);
 			path = levelShoesTest;
 			sourceTree = "<group>";
@@ -209,8 +202,9 @@
 		52C0E42028E7257D0058A830 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				52C0E48E28E900E00058A830 /* Utilities */,
+				52C0E48D28E900B90058A830 /* Theme */,
 				52C0E41B28E721C40058A830 /* Components */,
-				52C0E42128E725910058A830 /* ThemeManager.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -344,6 +338,22 @@
 			path = "Animation+Extentions";
 			sourceTree = "<group>";
 		};
+		52C0E48D28E900B90058A830 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				52C0E42128E725910058A830 /* ThemeManager.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		52C0E48E28E900E00058A830 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				52C0E48128E8D3720058A830 /* Storage.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -423,7 +433,6 @@
 			files = (
 				52C0E47E28E89D410058A830 /* H2.swift in Sources */,
 				52C0E44828E859CF0058A830 /* RequestManager.swift in Sources */,
-				52C0E41028E71CFC0058A830 /* ContentView.swift in Sources */,
 				52C0E42A28E72D130058A830 /* Color+Extension.swift in Sources */,
 				52C0E47628E897570058A830 /* TransitionAnimation+Defaults.swift in Sources */,
 				52C0E47828E897570058A830 /* CGAffineTransform+InPlace.swift in Sources */,
@@ -440,7 +449,6 @@
 				52C0E45A28E880880058A830 /* ProductCellViewModel.swift in Sources */,
 				52C0E47A28E897570058A830 /* Animation+Scale.swift in Sources */,
 				52C0E48428E8DE0B0058A830 /* WishlistRowView.swift in Sources */,
-				52C0E40E28E71CFC0058A830 /* levelShoesTestApp.swift in Sources */,
 				52C0E43A28E765C00058A830 /* HomeCoordinator.swift in Sources */,
 				52C0E42628E7274B0058A830 /* HomeView.swift in Sources */,
 				52C0E47428E897570058A830 /* Animation+Navigation.swift in Sources */,

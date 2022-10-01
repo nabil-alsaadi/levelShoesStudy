@@ -13,7 +13,6 @@ struct ProgressIndecatorView: View {
         HStack {
             Spacer()
             ProgressView()
-//                .progressViewStyle(CircularProgressViewStyle(tint: globals.colorPalette.secondary))
             Spacer()
         }
         
