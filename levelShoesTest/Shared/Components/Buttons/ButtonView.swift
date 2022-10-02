@@ -30,9 +30,6 @@ struct ButtonView: View {
         }
         .opacity(disabled ? 0.5 : 1)
         .disabled(disabled)
-
-        
-        
     }
 }
 

@@ -26,7 +26,6 @@ struct BookmarkButtonView: View {
                     .scaledToFit()
                     .frame(height:30)
             }
-            
         }
     }
 }

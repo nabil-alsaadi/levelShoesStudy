@@ -21,40 +21,45 @@ struct NavigationBarView: View {
     var body: some View {
         VStack {
             if type == .home {
-                HStack {
-                    Spacer()
-                    Text(title)
-                    Spacer()
-                }
-                .overlay(alignment: .trailing) {
-                    Button {
-                        rightAction()
-                    } label: {
-                        Image("bookmark")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height:30)
+                ZStack {
+                    HStack {
+                        Spacer()
+                        Text(title)
+                        Spacer()
                     }
+                    HStack {
+                        Spacer()
+                        Button {
+                            rightAction()
+                        } label: {
+                            Image("bookmark")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height:30)
+                        }
+                    }
+                    
                 }
                 .padding(.horizontal)
                 .shadow(color: .white,radius: 0)
-                
-                
             }
             else if type == .bookmarks {
-                HStack {
-                    Spacer()
-                    Text(title)
-                    Spacer()
-                }
-                .overlay(alignment: .trailing) {
-                    Button {
-                        rightAction()
-                    } label: {
-                        Image("x")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height:30)
+                ZStack {
+                    HStack {
+                        Spacer()
+                        Text(title)
+                        Spacer()
+                    }
+                    HStack {
+                        Spacer()
+                        Button {
+                            rightAction()
+                        } label: {
+                            Image("x")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height:30)
+                        }
                     }
                 }
                 .padding(.horizontal)
@@ -76,14 +81,6 @@ struct NavigationBarView: View {
                     BookmarkButtonView(selected: isFav) {
                         rightAction()
                     }
-//                    Button {
-//                        rightAction()
-//                    } label: {
-//                        Image("bookmark")
-//                            .resizable()
-//                            .scaledToFit()
-//                            .frame(height:30)
-//                    }
                 }
                 .padding(.horizontal)
                 .shadow(color: .white,radius: 0)

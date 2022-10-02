@@ -10,17 +10,14 @@ import SwiftUI
 struct TagView: View {
     var title: String
     var body: some View {
-        
-            Text(title)
-                .font(.caption2)
-                .foregroundColor(.black)
-                .padding(5)
-                .background(
-                  RoundedRectangle(cornerRadius: 5)
+        Text(title)
+            .font(.caption2)
+            .foregroundColor(.black)
+            .padding(5)
+            .background(
+                RoundedRectangle(cornerRadius: 5)
                     .fill(Color.tagColor)
-                 )
-        
-        
+            )
     }
 }
 

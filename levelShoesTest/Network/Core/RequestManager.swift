@@ -7,7 +7,6 @@
 
 import Foundation
 import Combine
-import MobileCoreServices
 import SwiftUI
 enum HTTPMethod {
     case post
@@ -26,8 +25,6 @@ class RequestManager {
         
         return self.request(url: url, method: method, bodyRequest: bodyRequest, headers: headers)
                 .eraseToAnyPublisher()
-        
-
     }
     func request(url: String, method: HTTPMethod, bodyRequest: [String: Any], headers: [String: String], token: String = "") -> AnyPublisher<URLRequest, Error> {
         var headersArr = headers

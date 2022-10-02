@@ -23,7 +23,6 @@ struct HomeView: View {
                 ProgressIndecatorView()
                 Spacer()
             }
-            
         }
     }
 }

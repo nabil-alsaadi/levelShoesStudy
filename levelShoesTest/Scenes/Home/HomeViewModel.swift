@@ -14,27 +14,12 @@ class HomeViewModel: ObservableObject {
     @Published var itemsResponse : ItemsReponse?
     init(router: UnownedRouter<HomeRoute>) {
         self.router = router
-//        ItmesService.shared.getItems()
-//            .sink { completion in
-//                switch completion {
-//                case.failure(let error):
-//                    print(error)
-//                case .finished:
-//                    break
-//                }
-//            } receiveValue: { itemsResponse in
-//                self.itemsResponse = itemsResponse
-//            }.store(in: &cancellables)
-
     }
     enum Action {
-       // case productDetails
         case wishlist
     }
     func send(action: Action) {
         switch action {
-//        case .productDetails:
-//            router.trigger(.productDetails)
         case .wishlist:
             router.trigger(.wishlist)
         }

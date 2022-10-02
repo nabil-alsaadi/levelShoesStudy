@@ -51,7 +51,6 @@ struct UrlImageView: View {
 struct UrlImageView_Previews: PreviewProvider {
     static var previews: some View {
         UrlImageView(urlString: "https://picsum.photos/id/2/200/200", imageScale: .fit)
-        //.previewLayout(PreviewLayout.fixed(width: 200, height: 200))
     }
 }
 

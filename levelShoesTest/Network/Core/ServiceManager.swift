@@ -9,9 +9,6 @@ import Foundation
 import Combine
 import SwiftUI
 
-class ApiConstants {
-    static var baseUrl = "https://run.mocky.io/v3"
-}
 enum APIFailureCondition: Error, LocalizedError {
     case invalidServerResponse
     case invalidParsing
@@ -19,22 +16,6 @@ enum APIFailureCondition: Error, LocalizedError {
     case invalidBodyParams
     case apiError(reason: String,code:Int)
     case notfound
-    var errorCode: Int? {
-        switch self {
-        case .invalidServerResponse:
-            return 500
-        case .apiError(let _,let code):
-            return code
-        case .invalidUrl:
-            return 500
-        case .invalidBodyParams:
-            return 500
-        case .invalidParsing:
-            return 500
-        case .notfound:
-            return 404
-        }
-    }
     var errorDescription: String? {
         switch self {
         case .invalidServerResponse:
@@ -126,11 +107,6 @@ class ServiceManager {
                         else {
                             throw APIFailureCondition.invalidServerResponse
                         }
-//                        if let bodyString = NSString(data: value.message, encoding: String.Encoding.utf8.rawValue) as String? {
-//                            throw APIFailureCondition.apiError(reason: bodyString)
-//                        } else {
-//                            throw APIFailureCondition.invalidServerResponse
-//                        }
                     }
 
                 }
@@ -151,11 +127,7 @@ class ServiceManager {
             .eraseToAnyPublisher()
     }
     private func generateHeaders() -> [String: String] {
-        // headers["Authorization"] = "Bearer "
         var headers = [String: String]()
-//        headers[ApiConstants.inputLanguage] = "EN"
-//        headers[ApiConstants.inputVersion] = ""
-//        headers[ApiConstants.inputDevice] = "ios"
         headers["Content-Type"] = "application/json"
         return headers
     }

@@ -23,7 +23,6 @@ struct RemoveButton: View {
                 Text("Remove")
                     .foregroundColor(.gray)
                     .underline()
-                
             }
         }
     }

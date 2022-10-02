@@ -20,13 +20,6 @@ struct itemsListView: View {
                             ProductCellView(item: items[index])
                         }
                     }
-//                    ForEach(items, id: \.self) { item in
-//                        Button {
-//                            viewModel.send(action: .productDetails(item: item) )
-//                        } label: {
-//                            ProductCellView(item: item)
-//                        }
-//                    }
                 }
             }
             .padding(20)

@@ -17,39 +17,36 @@ struct WishlistRowView: View {
         } label: {
             VStack {
                 HStack(alignment: .top) {
-                    VStack {
-                        UrlImageView(urlString: item.image, imageScale: .fit)
-                            .frame(width: 150,height: 200)
-                            .padding()
-                    }
-                    .overlay(alignment: .top, content: {
-                        HStack(alignment: .top) {
-                            FlexibleView(data: item.badges,
-                                spacing: 5,
-                                alignment: .leading
-                              ) { item in
-                                TagView(title: item)
-                              }
-                              //.padding(.horizontal, 20)
+                    ZStack {
+                        VStack {
+                            UrlImageView(urlString: item.image, imageScale: .fit)
+                                .frame(width: self.getReact().width * 0.4)
                             Spacer()
-                            
                         }
-                        .padding(10)
-                    })
+                        VStack {
+                            HStack(alignment: .top) {
+                                FlexibleView(data: item.badges,
+                                             spacing: 5,
+                                             alignment: .leading
+                                ) { item in
+                                    TagView(title: item)
+                                }
+                                //.padding(.horizontal, 20)
+                                Spacer()
+                            }
+                            .padding(.leading)
+                            Spacer()
+                        }
+                    }
+                    .padding(.horizontal,10)
+                    .padding(.bottom,50)
                     VStack(alignment: .leading) {
                         P(item.brand,fontWeight: .bold)
                         H2(item.name, foregroundColor: .gray)
                         HStack {
                             P("\(item.price) \(globals.itemsResponse.currency)",foregroundColor: .gray)
                             if let originalPrice = item.originalPrice {
-                                //Spacer()
-                                P("\(originalPrice) \(globals.itemsResponse.currency)",foregroundColor: .lightGray)
-                                    .overlay(content: {
-                                        Rectangle()
-                                            .fill(.gray)
-                                            .frame(height: 1)
-                                    })
-                                
+                                CrosslineTextView(title: "\(originalPrice) \(globals.itemsResponse.currency)")
                             }
                         }.padding(.top,5)
                         Spacer()
@@ -60,18 +57,13 @@ struct WishlistRowView: View {
                             }
                             Spacer()
                         }
-                        
-
                     }.padding(.horizontal,10)
-                    
                 }
                 .padding(.vertical,30)
                 Seperator()
             }
-            .frame(maxHeight:400)
+            .frame(maxHeight: getReact().height * 0.5)
         }
-
-        
     }
 }
 

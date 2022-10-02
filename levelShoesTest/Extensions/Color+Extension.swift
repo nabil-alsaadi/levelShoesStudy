@@ -55,7 +55,7 @@ private func getrgbaData(hexString: String) -> (r: CGFloat, g: CGFloat, b: CGFlo
     if hexString.hasPrefix("#") {
 
         let start = hexString.index(hexString.startIndex, offsetBy: 1)
-        let hexColor = String(hexString[start...]) // Swift 4
+        let hexColor = String(hexString[start...])
 
         let scanner = Scanner(string: hexColor)
         var hexNumber: UInt64 = 0

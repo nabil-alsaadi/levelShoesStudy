@@ -20,7 +20,6 @@ struct ProductDetailsView: View {
                     else {
                         globals.addToWishList(item: item)
                     }
-                    
                 } leftAction: {
                     viewModel.send(action: .pop)
                 }
@@ -36,11 +35,7 @@ struct ProductDetailsView: View {
                     }
                     .padding()
                     VStack {
-                        //Spacer()
                         UrlImageView(urlString: item.image, imageScale: .fit)
-    //                    Image("test")
-    //                        .resizable()
-    //                        .scaledToFit()
                             .padding(.bottom,20)
                     }
                 }
@@ -50,13 +45,7 @@ struct ProductDetailsView: View {
                 HStack {
                     H2("\(item.price) \(globals.itemsResponse.currency)",foregroundColor: .gray)
                     if let originalPrice = item.originalPrice {
-                        H2("\(originalPrice) \(globals.itemsResponse.currency)",foregroundColor: .gray)
-                            .overlay(content: {
-                                Rectangle()
-                                    .fill(.gray)
-                                    .frame(height: 1)
-                            })
-                            
+                        CrosslineTextView(title: "\(originalPrice) \(globals.itemsResponse.currency)")
                     }
                 }.padding(.top,5)
                 
@@ -65,10 +54,7 @@ struct ProductDetailsView: View {
                 }
                 .padding()
             }
-            
         }
-        
-        
     }
 }
 

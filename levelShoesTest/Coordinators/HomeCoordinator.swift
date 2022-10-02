@@ -18,7 +18,7 @@ enum HomeRoute: Route {
     case dismiss
 }
 class Globals: ObservableObject {
-    @Published var itemsResponse = ItemsReponse(title: "", currency: "", items: [])
+    @Published var itemsResponse = ItemsReponse(title: "Loading", currency: "AED", items: [])
     @Published var itemsViewModels = []
     @Published var wishlist: [Item] = []
     func addToWishList(item: Item) {
@@ -97,10 +97,6 @@ class HomeCoordinator: NavigationCoordinator<HomeRoute> {
         case .wishlist:
             let wishlistCoordinator = WishlistCoordinator(globals: globals)
             return .presentFullScreen(wishlistCoordinator)
-//            let vm = WishlistViewModel(router: unownedRouter)
-//            let view = WishlistView(viewModel: vm).environmentObject(globals)
-//            let vc = UIHostingController(rootView: view)
-//            return .push(vc,animation: .modal)
         case .pop:
             return .pop()
         case .dismiss:
