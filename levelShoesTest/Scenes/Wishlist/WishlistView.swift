@@ -12,7 +12,7 @@ struct WishlistView: View {
     @ObservedObject var viewModel: WishlistViewModel
     var body: some View {
         VStack {
-            NavigationBarView(title: "WISHLIST (\(globals.wishlist.count))", type: .bookmarks,rightAction: {
+            NavigationBarView(title: "WISHLIST (\(globals.wishListCount()))", type: .bookmarks,rightAction: {
                 viewModel.send(action: .dismiss)
             })
             ScrollView {

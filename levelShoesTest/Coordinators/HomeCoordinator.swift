@@ -18,33 +18,33 @@ enum HomeRoute: Route {
     case dismiss
 }
 class Globals: ObservableObject {
-    @Published var itemsResponse = ItemsReponse(title: "Loading", currency: "AED", items: [])
-    @Published var itemsViewModels = []
-    @Published var wishlist: [Item] = []
+    @Published var itemsResponse: ItemsReponse
+    init(itemsResponse: ItemsReponse = ItemsReponse(title: "Loading", currency: "AED", items: [])) {
+        self.itemsResponse = itemsResponse
+    }
     func addToWishList(item: Item) {
         if let index = itemsResponse.items.firstIndex(of: item) {
             itemsResponse.items[index].isFav = true
-            refreshWishlist()
             Storage.shared.saveWishlist(items: itemsResponse.items)
         }
     }
     func removeFromWishlist(item: Item) {
         if let index = itemsResponse.items.firstIndex(of: item) {
             itemsResponse.items[index].isFav = false
-            refreshWishlist()
             Storage.shared.saveWishlist(items: itemsResponse.items)
         }
-    }
-    func refreshWishlist() {
-        wishlist = itemsResponse.items.filter({ Item in
-            return Item.isFav ?? false
-        })
     }
     func addToBag(item: Item) {
         if let index = itemsResponse.items.firstIndex(of: item) {
             itemsResponse.items[index].isInBag = true
             Storage.shared.saveBag(items: itemsResponse.items)
         }
+    }
+    func wishListCount() -> Int {
+        let items = itemsResponse.items.filter { Item in
+            return Item.isFav ?? false
+        }
+        return items.count
     }
 }
 
@@ -69,7 +69,6 @@ class HomeCoordinator: NavigationCoordinator<HomeRoute> {
                 response.items = Storage.shared.loadWishlist(items: response.items)
                 response.items = Storage.shared.loadBag(items: response.items)
                 self.globals.itemsResponse = response
-                self.globals.refreshWishlist()
                 
             }.store(in: &cancelSet)
     }

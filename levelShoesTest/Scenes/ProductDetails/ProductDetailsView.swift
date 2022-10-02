@@ -60,6 +60,6 @@ struct ProductDetailsView: View {
 
 struct ProductDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        ProductDetailsView(viewModel: ProductDetailsViewModel(router: HomeCoordinator().unownedRouter, itemIndex: 0)).environmentObject(Globals())
+        ProductDetailsView(viewModel: ProductDetailsViewModel(router: HomeCoordinator().unownedRouter, itemIndex: 0)).environmentObject(Globals(itemsResponse: ItemsReponse(title: "test", currency: "aed", items: [Item.testItem2()]) ))
     }
 }
