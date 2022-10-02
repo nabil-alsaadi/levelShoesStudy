@@ -14,6 +14,7 @@
   * [URLRequest] native Library from Foundation to manage network requests.
   * [JSONDecoder] native Library from Foundation to parse json response.
   * [UserDefaults] native Library to manage local storage.
+  * [Swift Package Manager] to manage external dependency's.
 
 ## Architecture
   *MVVM-C Model-View-ViewModel-Coordinator*
