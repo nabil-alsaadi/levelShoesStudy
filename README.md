@@ -1,4 +1,4 @@
-# levelShoesTest
+# levelShoesStudy
 
 *Case study app for LEVEL SHOES company*
 
